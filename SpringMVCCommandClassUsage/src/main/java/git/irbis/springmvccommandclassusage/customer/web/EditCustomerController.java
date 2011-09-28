@@ -13,6 +13,10 @@ import org.springframework.web.servlet.view.RedirectView;
  * @author Alexsey Nadtochey<irbis4lan@yandex.ua>
  */
 public class EditCustomerController extends AbstractFormController {
+    private static final String CUSTOMERID_REQUEST_PARAMETERNAME = "customerid";
+    
+    private static final String LISTCONTROLLER_VIEWNAME = "customerslist";
+    private static final String CONTROLLER_VIEWNAME = "editcustomer";
     
     private final CustomerCommandFactory customerCommandFactory;
 
@@ -24,7 +28,8 @@ public class EditCustomerController extends AbstractFormController {
         int customerId = -1;
         
         try {
-            customerId = Integer.parseInt(request.getParameter("customerid"));
+            customerId = Integer.parseInt(
+                    request.getParameter(CUSTOMERID_REQUEST_PARAMETERNAME));
         } catch (Exception e) {
         }
         
@@ -52,7 +57,7 @@ public class EditCustomerController extends AbstractFormController {
     @Override
     protected ModelAndView showForm(HttpServletRequest request, 
     HttpServletResponse response, BindException errors) throws Exception {
-        return showForm(request, errors, "editcustomer");
+        return showForm(request, errors, CONTROLLER_VIEWNAME);
     }
 
     @Override
@@ -79,9 +84,9 @@ public class EditCustomerController extends AbstractFormController {
         switch (action) {
             case OK:
             case CANCEL:
-                return new ModelAndView(new RedirectView("customerslist"));
+                return new ModelAndView(new RedirectView(LISTCONTROLLER_VIEWNAME));
             default: // apply button
-                return new ModelAndView(new RedirectView("editcustomer"));
+                return new ModelAndView(new RedirectView(CONTROLLER_VIEWNAME));
         }
     }
     
