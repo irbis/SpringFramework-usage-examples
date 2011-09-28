@@ -1,0 +1,16 @@
+The repository contains examples of how to use SpringFramework to solve everyday
+problems. All projects build with maven.
+
+--------------------------------------------------------------------------------
+SpringMVCCommandClassUsages shows how to use SpringMVC and command class to
+process requests from scenario:
+
+1. List of objects 
+2. Add/Edit object
+3. Apply button pressed - add/edit object.
+4. Edit object
+5. Ok or Cancel button pressed - save
+6. List of objects
+
+Project doesn't contain views. All checks with JUnits.
+--------------------------------------------------------------------------------
