@@ -35,5 +35,14 @@ class CustomerRepositoryMockImpl implements CustomersRepository {
         
         return result;
     }
+
+    @Override
+    public Customer find(int customerId) {
+        for (Customer c : customers)
+            if (customerId == c.getCustomerId())
+                return c;
+        
+        return null;
+    }
     
 }
