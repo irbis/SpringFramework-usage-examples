@@ -44,5 +44,43 @@ class CustomerRepositoryMockImpl implements CustomersRepository {
         
         return null;
     }
+
+    @Override
+    public List<Customer> findCustomersByLastName(String lastName) {
+        List<Customer> foundCustomers = new ArrayList<Customer>();
+        String lastNameLowerCase = lastName.toLowerCase();
+        
+        for (Customer c : customers)
+            if (c.getLastName().toLowerCase().startsWith(lastNameLowerCase))
+                foundCustomers.add(new Customer(c));
+        
+        return foundCustomers;
+    }
+
+    @Override
+    public List<Customer> findCustomerByFirstName(String firstName) {
+        List<Customer> foundCustomers = new ArrayList<Customer>();
+        String firstNameLowerCase = firstName.toLowerCase();
+        
+        for (Customer c : customers)
+            if (c.getFirstName().toLowerCase().startsWith(firstNameLowerCase))
+                foundCustomers.add(new Customer(c));
+        
+        return foundCustomers;
+    }
     
+    @Override
+    public List<Customer> findCustomerByFirstLastName(
+            String firstName, String lastName) {
+        List<Customer> foundCustomers = new ArrayList<Customer>();
+        String firstNameLowerCase = firstName.toLowerCase();
+        String lastNameLowerCase = lastName.toLowerCase();
+
+        for (Customer c : customers)
+            if (c.getFirstName().toLowerCase().startsWith(firstNameLowerCase) &&
+                    c.getLastName().toLowerCase().startsWith(lastNameLowerCase))
+                foundCustomers.add(new Customer(c));
+        
+        return foundCustomers;
+    }
 }

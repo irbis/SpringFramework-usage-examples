@@ -65,4 +65,207 @@ public class ListCustomersControllerTest {
             fail();
         }
     }
+    
+    @Test
+    public void testListCustomersByLastNameSuccess() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        ListCustomersController listCustomersController = 
+                new ListCustomersController(new CustomerRepositoryMockImpl());
+        request.setMethod("GET");
+        request.setRequestURI("/listcustomers/last");
+        
+        try {
+            ModelAndView mv = new AnnotationMethodHandlerAdapter().handle(
+                    request, response, listCustomersController);
+            
+            ModelAndViewAssert.assertViewName(mv, "listcustomers");
+            List<Customer> customers = (List<Customer>) mv.getModel().get(
+                    "customers");
+            
+            assertNotNull(customers);
+            assertEquals(5, customers.size());
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+    
+    @Test
+    public void testListCustomersByLastNameFailure() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        ListCustomersController listCustomersController = 
+                new ListCustomersController(new CustomerRepositoryMockImpl());
+        request.setMethod("GET");
+        request.setRequestURI("/listcustomers/first");
+        
+        try {
+            ModelAndView mv = new AnnotationMethodHandlerAdapter().handle(
+                    request, response, listCustomersController);
+            
+            ModelAndViewAssert.assertViewName(mv, "listcustomers");
+            List<Customer> customers = (List<Customer>) mv.getModel().get(
+                    "customers");
+            
+            assertNotNull(customers);
+            assertTrue(customers.isEmpty());
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testFindCustomerByLastNameSuccess() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        ListCustomersController listCustomersController = 
+                new ListCustomersController(new CustomerRepositoryMockImpl());
+        request.setMethod("GET");
+        request.setRequestURI("/listcustomers/lastname2");
+        
+        try {
+            ModelAndView mv = new AnnotationMethodHandlerAdapter().handle(
+                    request, response, listCustomersController);
+            
+            ModelAndViewAssert.assertViewName(mv, "listcustomers");
+            List<Customer> customers = (List<Customer>) mv.getModel().get(
+                    "customers");
+            
+            assertNotNull(customers);
+            assertEquals(1, customers.size());
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+    
+    @Test
+    public void testListCustomersByFirstNameSuccess() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        ListCustomersController listCustomersController = 
+                new ListCustomersController(new CustomerRepositoryMockImpl());
+        request.setMethod("GET");
+        request.setRequestURI("/listcustomers");
+        request.setParameter("firstName", "first");
+        request.setParameter("lastName", "");
+        
+        try {
+            ModelAndView mv = new AnnotationMethodHandlerAdapter().handle(
+                    request, response, listCustomersController);
+            
+            ModelAndViewAssert.assertViewName(mv, "listcustomers");
+            List<Customer> customers = (List<Customer>) mv.getModel().get(
+                    "customers");
+            
+            assertNotNull(customers);
+            assertEquals(5, customers.size());
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+
+    public void testFindCustomerByFirstNameSuccess() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        ListCustomersController listCustomersController = 
+                new ListCustomersController(new CustomerRepositoryMockImpl());
+        request.setMethod("GET");
+        request.setRequestURI("/listcustomers");
+        request.setParameter("firstName", "firstname1");
+        request.setParameter("lastName", "");
+        
+        try {
+            ModelAndView mv = new AnnotationMethodHandlerAdapter().handle(
+                    request, response, listCustomersController);
+            
+            ModelAndViewAssert.assertViewName(mv, "listcustomers");
+            List<Customer> customers = (List<Customer>) mv.getModel().get(
+                    "customers");
+            
+            assertNotNull(customers);
+            assertEquals(1, customers.size());
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+    
+    
+    @Test
+    public void testListCustomersByFirstNameFailure() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        ListCustomersController listCustomersController = 
+                new ListCustomersController(new CustomerRepositoryMockImpl());
+        request.setMethod("GET");
+        request.setRequestURI("/listcustomers");
+        request.setParameter("firstName", "last");
+        request.setParameter("lastName", "");
+        
+        try {
+            ModelAndView mv = new AnnotationMethodHandlerAdapter().handle(
+                    request, response, listCustomersController);
+            
+            ModelAndViewAssert.assertViewName(mv, "listcustomers");
+            List<Customer> customers = (List<Customer>) mv.getModel().get(
+                    "customers");
+            
+            assertNotNull(customers);
+            assertTrue(customers.isEmpty());
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testListCustomersByFirstLastNameSuccess() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        ListCustomersController listCustomersController = 
+                new ListCustomersController(new CustomerRepositoryMockImpl());
+        request.setMethod("GET");
+        request.setRequestURI("/listcustomers");
+        request.setParameter("firstName", "first");
+        request.setParameter("lastName", "last");
+        
+        try {
+            ModelAndView mv = new AnnotationMethodHandlerAdapter().handle(
+                    request, response, listCustomersController);
+            
+            ModelAndViewAssert.assertViewName(mv, "listcustomers");
+            List<Customer> customers = (List<Customer>) mv.getModel().get(
+                    "customers");
+            
+            assertNotNull(customers);
+            assertEquals(5, customers.size());
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+
+    @Test
+    public void testListCustomersByFirstLastNameFailure() {
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        MockHttpServletResponse response = new MockHttpServletResponse();
+        ListCustomersController listCustomersController = 
+                new ListCustomersController(new CustomerRepositoryMockImpl());
+        request.setMethod("GET");
+        request.setRequestURI("/listcustomers");
+        request.setParameter("firstName", "fr");
+        request.setParameter("lastName", "last");
+        
+        try {
+            ModelAndView mv = new AnnotationMethodHandlerAdapter().handle(
+                    request, response, listCustomersController);
+            
+            ModelAndViewAssert.assertViewName(mv, "listcustomers");
+            List<Customer> customers = (List<Customer>) mv.getModel().get(
+                    "customers");
+            
+            assertNotNull(customers);
+            assertTrue(customers.isEmpty());
+        } catch (Exception ex) {
+            fail();
+        }
+    }
+    
 }
