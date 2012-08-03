@@ -18,7 +18,14 @@ import git.irbis.spring3.controllerusageexample.customers.repository.CustomersRe
 import org.springframework.util.StringUtils;
 
 /**
- *
+ * <p>
+ * A factory to create command class to process request from the list customers
+ * controller. Request can specify lastname or lastname and firstname or can't 
+ * have any additional parameters to show all customers. The factory parses
+ * parameters and prepare a factory object to call method createCommand() to
+ * create command class.
+ * </p>
+ * @see ListCustomersController
  * @author Alexsey Nadtochey <A.Nadtochey@gmail.com>
  */
 class ListCustomersCommandFactory {

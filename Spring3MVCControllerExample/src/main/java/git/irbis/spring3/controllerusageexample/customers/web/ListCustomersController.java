@@ -22,7 +22,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ * <p>
+ * A controller to show list of customers. There are following URI's can
+ * be used to show customers:
+ * <ul>
+ * <li>/listcustomers - to show full list of customers</li>
+ * <li>/listcustomers/{lastName} - to show list of customers lastname started
+ * entered</li>
+ * <li>listcustomers?firstName={firstName}&lastName={lastName} - to show list
+ * of customers started from entered firstname and lastname.
+ * </ul>
+ * </p>
+ * @see ListCustomersCommandFactory
+ * @see ListCustomersCommand
  * @author Alexsey Nadtochey <A.Nadtochey@gmail.com>
  */
 @Controller

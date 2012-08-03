@@ -19,7 +19,12 @@ import git.irbis.spring3.controllerusageexample.customers.repository.CustomersRe
 import java.util.List;
 
 /**
- *
+ * <p>
+ * A command to show list of customers whom firstname started from specified in
+ * the requrest to list customers controller.
+ * </p>
+ * @see ListCustomersController
+ * @see ListCustomersCommandFactory
  * @author Alexsey Nadtochey <A.Nadtochey@gmail.com>
  */
 class ListByFirstNameCustomersCommand extends ListCustomersCommand {

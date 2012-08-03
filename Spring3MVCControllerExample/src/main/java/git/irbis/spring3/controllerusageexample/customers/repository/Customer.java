@@ -15,7 +15,9 @@
 package git.irbis.spring3.controllerusageexample.customers.repository;
 
 /**
- *
+ * <p>
+ * A customer domain model.
+ * </p>
  * @author Alexsey Nadtochey <A.Nadtochey@gmail.com>
  */
 public class Customer {
@@ -73,7 +75,7 @@ public class Customer {
         hash = 79 * hash + (this.address != null ? this.address.hashCode() : 0);
         return hash;
     }
-    
+
     /**
      * Get the value of address
      *

@@ -17,7 +17,10 @@ package git.irbis.spring3.controllerusageexample.customers.repository;
 import java.util.List;
 
 /**
- *
+ * <p>
+ * An interface to the customer's repository. 
+ * CRUD and other operations contains.
+ * </p>
  * @author Alexsey Nadtochey <A.Nadtochey@gmail.com>
  */
 public interface CustomersRepository {

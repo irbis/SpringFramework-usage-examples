@@ -20,7 +20,11 @@ import java.util.List;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- *
+ * <p>
+ * An abstract command class to process request from list customers controller.
+ * </p>
+ * @see ListCustomersController
+ * @see ListCustomersCommandFactory
  * @author Alexsey Nadtochey <A.Nadtochey@gmail.com>
  */
 abstract class ListCustomersCommand {

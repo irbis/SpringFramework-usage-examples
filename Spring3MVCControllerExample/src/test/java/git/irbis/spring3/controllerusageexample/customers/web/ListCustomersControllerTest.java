@@ -29,7 +29,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter;
 
 /**
- *
+ * <p>
+ * JUnit tests to validate ListCustomerController functionality.
+ * </p>
+ * @see ListCustomersController
  * @author Alexsey Nadtochey <A.Nadtochey@gmail.com>
  */
 public class ListCustomersControllerTest {
@@ -54,7 +57,7 @@ public class ListCustomersControllerTest {
     }
 
     /**
-     * Test of listCustomers method, of class ListCustomersController.
+     * Test of request: show all customers.
      */
     @Test
     public void testListCustomers() {
@@ -80,6 +83,9 @@ public class ListCustomersControllerTest {
         }
     }
     
+    /**
+     * Test of request: show customers started from lastname, result success.
+     */
     @Test
     public void testListCustomersByLastNameSuccess() {
         MockHttpServletRequest request = new MockHttpServletRequest();
@@ -104,6 +110,9 @@ public class ListCustomersControllerTest {
         }
     }
     
+    /**
+     * Test of request: show customers by lastname, result failure.
+     */
     @Test
     public void testListCustomersByLastNameFailure() {
         MockHttpServletRequest request = new MockHttpServletRequest();
@@ -128,6 +137,9 @@ public class ListCustomersControllerTest {
         }
     }
 
+    /**
+     * Test of request: show customers by lastname, result success.
+     */
     @Test
     public void testFindCustomerByLastNameSuccess() {
         MockHttpServletRequest request = new MockHttpServletRequest();
@@ -152,6 +164,9 @@ public class ListCustomersControllerTest {
         }
     }
     
+    /**
+     * Test of request: show customers started from firstname, result success.
+     */
     @Test
     public void testListCustomersByFirstNameSuccess() {
         MockHttpServletRequest request = new MockHttpServletRequest();
@@ -178,6 +193,10 @@ public class ListCustomersControllerTest {
         }
     }
 
+    /**
+     * Test of request: show customer by fistname, result success.
+     */
+    @Test
     public void testFindCustomerByFirstNameSuccess() {
         MockHttpServletRequest request = new MockHttpServletRequest();
         MockHttpServletResponse response = new MockHttpServletResponse();
@@ -203,7 +222,9 @@ public class ListCustomersControllerTest {
         }
     }
     
-    
+    /**
+     * Test of request: show customers by firstname, result failure.
+     */
     @Test
     public void testListCustomersByFirstNameFailure() {
         MockHttpServletRequest request = new MockHttpServletRequest();
@@ -230,6 +251,10 @@ public class ListCustomersControllerTest {
         }
     }
 
+    /**
+     * Test of request: show customers started from firstname and lastname, 
+     * result success.
+     */
     @Test
     public void testListCustomersByFirstLastNameSuccess() {
         MockHttpServletRequest request = new MockHttpServletRequest();
@@ -256,6 +281,9 @@ public class ListCustomersControllerTest {
         }
     }
 
+    /**
+     * Test of request: show customers by firstname lastname, result failure.
+     */
     @Test
     public void testListCustomersByFirstLastNameFailure() {
         MockHttpServletRequest request = new MockHttpServletRequest();

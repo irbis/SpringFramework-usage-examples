@@ -20,7 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * <p>
+ * JUnit mock object of the customer's repository.
+ * </p>
+ * @see CustomersRepository
  * @author Alexsey Nadtochey <A.Nadtochey@gmail.com>
  */
 class CustomerRepositoryMockImpl implements CustomersRepository {
