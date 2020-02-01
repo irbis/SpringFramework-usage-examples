@@ -10,8 +10,13 @@
     <packaging>pom</packaging>
     <version>1.0</version>
 
+    <properties>
+        <spring.version>5.2.2.RELEASE</spring.version>
+    </properties>
+
     <modules>
         <module>Spring3MVCControllerExample</module>
         <module>SpringMVCCommandClassUsage</module>
+        <module>SpringInjectionFactory</module>
     </modules>
 </project>
